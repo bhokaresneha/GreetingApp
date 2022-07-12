@@ -1,9 +1,19 @@
 package com.example.mygreetingapp.controller;
 
 import com.example.mygreetingapp.module.User;
+import com.example.mygreetingapp.service.GreetingServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 @RestController
 public class GreetingAppController {
+
+    //Using Service Layer
+    @Autowired
+    GreetingServices service1;
+    @GetMapping("/serviceData")
+    public String serviceData(){
+        return "Hello "+service1.message();
+    }
     //Using RequestBody
     @GetMapping("/getData")
     public String getdata(@RequestBody User data){
