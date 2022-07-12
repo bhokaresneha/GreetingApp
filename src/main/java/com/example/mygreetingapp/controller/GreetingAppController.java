@@ -5,6 +5,7 @@ import com.example.mygreetingapp.service.GreetingServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -65,5 +66,12 @@ public class GreetingAppController {
         Optional<User> response = service1.getMsgById(id);
         return response;
     }
+//UC-6
+//List of all Message
+@GetMapping("/getallData")
+public List<User> getallData(){
+    List<User> data=service1.getallData();
+    return data;
+}
 
 }
