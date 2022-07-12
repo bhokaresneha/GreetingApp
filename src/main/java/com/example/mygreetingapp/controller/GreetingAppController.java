@@ -4,6 +4,9 @@ import com.example.mygreetingapp.module.User;
 import com.example.mygreetingapp.service.GreetingServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+
 @RestController
 public class GreetingAppController {
 
@@ -54,6 +57,13 @@ public class GreetingAppController {
     public User sayHello (@RequestBody User user){
         User newuser = service1.sayHello(user);
         return newuser;
+    }
+   // UC-5
+    //Message BY ID
+    @GetMapping("/getbyid/{id}")
+    public Optional<User> getMsgById (@PathVariable Long id){
+        Optional<User> response = service1.getMsgById(id);
+        return response;
     }
 
 }
