@@ -29,4 +29,10 @@ public class GreetingServices {
     public List<User> getallData(){
         return greetingRepository.findAll();
     }
+
+    public User editData(User data,Long id){
+        User data1=new User(data,id);
+        greetingRepository.save(data1);
+        return data1;
+    }
 }

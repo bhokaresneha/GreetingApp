@@ -1,6 +1,7 @@
 package com.example.mygreetingapp.controller;
 
 import com.example.mygreetingapp.module.User;
+import com.example.mygreetingapp.repository.GreetingRepository;
 import com.example.mygreetingapp.service.GreetingServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,8 @@ public class GreetingAppController {
     //Using Service Layer
     @Autowired
     GreetingServices service1;
+    @Autowired
+    GreetingRepository greetingRepository;
     @GetMapping("/serviceData")
     public String serviceData(){
         return "Hello "+service1.message();
@@ -68,10 +71,14 @@ public class GreetingAppController {
     }
 //UC-6
 //List of all Message
-@GetMapping("/getallData")
-public List<User> getallData(){
-    List<User> data=service1.getallData();
-    return data;
-}
-
+    @GetMapping("/getallData")
+    public List<User> getallData(){
+        List<User> data=service1.getallData();
+        return data;
+    }
+    //UC-7
+    @PutMapping("/edit/{id}")
+    public User edit(@RequestBody User user,@PathVariable Long id) {
+        return service1.editData(user,id);
+    }
 }

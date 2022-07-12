@@ -13,11 +13,16 @@ public class User {
     String lastName;
 
     public User(User data) {
-
         this.firstName=data.firstName;
         this.lastName=data.lastName;
     }
     public User() {
+    }
+
+    public User(User data, Long id) {
+        this.firstName=data.firstName;
+        this.lastName=data.lastName;
+        this.id=id;
     }
 
     public String getFirstName() {
