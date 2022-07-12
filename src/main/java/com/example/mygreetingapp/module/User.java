@@ -4,6 +4,13 @@ public class User {
     String firstName;
     String lastName;
 
+    public User(User data) {
+        this.firstName=data.firstName;
+        this.lastName=data.lastName;
+    }
+    public User() {
+    }
+
     public String getFirstName() {
         return firstName;
     }

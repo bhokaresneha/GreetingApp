@@ -37,4 +37,15 @@ public class GreetingAppController {
     public String pathData(@PathVariable String name){
         return "Hello "+name+" !!!!" ;
     }
+    //UC-3
+    @GetMapping("/hello")
+    public String sayPosting(@RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName) {
+        if (lastName == null) lastName = "";
+        else if (firstName == null) firstName = "";
+        else if (firstName == null && lastName == null) {
+            firstName = "";
+            lastName = "";
+        }
+        return service1.sayHelloByName(firstName, lastName);
+    }
 }
