@@ -5,6 +5,7 @@ import com.example.mygreetingapp.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -34,5 +35,14 @@ public class GreetingServices {
         User data1=new User(data,id);
         greetingRepository.save(data1);
         return data1;
+    }
+
+    public String delete(Long id) {
+        Optional<User> newuser =greetingRepository.findById(id);
+        if (newuser.isPresent()){
+            greetingRepository.delete(newuser.get());
+            return "Record is deleted with id " +id;
+        }
+        return "Record not Found";
     }
 }

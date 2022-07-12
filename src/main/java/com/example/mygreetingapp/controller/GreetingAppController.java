@@ -81,4 +81,11 @@ public class GreetingAppController {
     public User edit(@RequestBody User user,@PathVariable Long id) {
         return service1.editData(user,id);
     }
+    //UC-8
+    @DeleteMapping("/delete/{id}")
+    public String delete(@PathVariable Long id)
+    {
+        return service1.delete(id);
+    }
+
 }
