@@ -48,4 +48,12 @@ public class GreetingAppController {
         }
         return service1.sayHelloByName(firstName, lastName);
     }
+
+    //UC-4
+    @PostMapping("/post")
+    public User sayHello (@RequestBody User user){
+        User newuser = service1.sayHello(user);
+        return newuser;
+    }
+
 }

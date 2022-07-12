@@ -1,10 +1,19 @@
 package com.example.mygreetingapp.module;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class User {
+    @Id
+    @GeneratedValue
+    public Long id;
     String firstName;
     String lastName;
 
     public User(User data) {
+
         this.firstName=data.firstName;
         this.lastName=data.lastName;
     }
@@ -26,5 +35,6 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
 
 }
